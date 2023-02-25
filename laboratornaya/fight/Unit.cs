@@ -1,7 +1,7 @@
 ﻿using System;
 namespace age_of_war
 {
-    public class Unit
+    public abstract class Unit
     {
         protected int hp;
         protected int attack;
