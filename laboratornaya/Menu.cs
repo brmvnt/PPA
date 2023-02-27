@@ -19,15 +19,6 @@ namespace ConsoleApp1
                     break;
                 // case еще какое-то действие...
             }
-
-            //while (true)
-            //{
-            //    DateTime ThDay = DateTime.Now;
-            //    string ThData = ThDay.ToString();
-            //    Console.WriteLine(ThData);
-            //    Thread.Sleep(1000);
-            //    Console.Clear();
-            //}
         }
 
         private static string MakeMainMenu()
