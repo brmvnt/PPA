@@ -1,0 +1,27 @@
+{
+  "TeamName": "Wir zind glucklich",
+  "UnitDescriptions": [
+    {
+      "UnidDescriptionId": 1,
+      "UnitName": "Infantry",
+      "Attack": 5,
+      "Defence": 10,
+      "HitPoints": 30
+    },
+    {
+      "UnidDescriptionId": 2,
+      "UnitName": "Heavy Infantry",
+      "Attack": 25,
+      "Defence": 20,
+      "HitPoints": 30
+    },
+    {
+      "UnidDescriptionId": 3,
+      "UnitName": "Knight",
+      "Attack": 49,
+      "Defence": 50,
+      "HitPoints": 1
+    }
+  ],
+  "Units": [3]
+}
