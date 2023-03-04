@@ -2,7 +2,7 @@
   "TeamName": "Wir zind glucklich",
   "UnitDescriptions": [
     {
-      "UnidDescriptionId": 1,
+      "UnitDescriptionId": 1,
       "UnitName": "Infantry",
       "Attack": 5,
       "Defence": 10,
