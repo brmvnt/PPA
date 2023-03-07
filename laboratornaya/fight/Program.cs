@@ -116,8 +116,10 @@ namespace age_of_war
     class Program
     {
         public static int Main() {
-            var game = new Game();
-            game.Start();
+            //var game = new Game();
+            var test = new Class1();
+
+            //game.Start();
             return 0;
         }
     }
