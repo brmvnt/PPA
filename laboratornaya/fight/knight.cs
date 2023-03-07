@@ -6,7 +6,8 @@ namespace age_of_war
     {
         public Knight()
         {
-            hp = 40;
+            constHp = 40;
+            hp = constHp;
             attack = 30;
             defence = 25;
         }
@@ -17,4 +18,3 @@ namespace age_of_war
         } 
     }
 }
-

@@ -4,6 +4,7 @@ namespace age_of_war
     public abstract class Unit
     {
         protected int hp;
+        protected int constHp;
         protected int attack;
         protected int defence;
         public int Hp
@@ -21,16 +22,24 @@ namespace age_of_war
             get { return defence; }
             set { defence = value; }
         }
-        public void GetHit(int oppAtt) {
-            if (oppAtt > Defence)
-            {
-                hp -= oppAtt;
-            }
+        public int ConstHp
+        {
+            get { return constHp; }
+            set { constHp = value; }
+        }
+        public void GetHit(int oppAtt, int ArmyPrice) {
+            var minus = (int)Math.Round((decimal)((ArmyPrice - defence)*oppAtt/100));
+            hp -= minus;
         }
         public bool IsStillAlive() {
             bool t = true;
             if (hp <= 0) t = false;
             return t;
+        }
+
+        internal IHealable GetHeal(int power)
+        {
+            throw new NotImplementedException();
         }
     }
 }
