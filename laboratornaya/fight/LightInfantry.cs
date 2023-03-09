@@ -3,14 +3,18 @@ namespace age_of_war
 {
     public class LightInfantry:Unit, IHealable
     {
+
+        public string name = "LightInfantry";
+
         public LightInfantry()
         {
             attack = 5;
-            defence = 10;
-            constHp = 30;
+            defence = 5;
+            constHp = 5;
             hp = constHp;
+            cost = attack + defence + hp;
         }
-        public string name = "LightInfantry";
+
         public void GetHeal(int HealerPower) {
             if (hp < ConstHp && hp > 0)
             {

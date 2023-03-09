@@ -8,24 +8,26 @@
     "net6.0": []
   },
   "packageFolders": {
-    "/Users/setuyaa/.nuget/packages/": {}
+    "C:\\Users\\a_nat\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/setuyaa/Projects/age_of_war/age_of_war/age_of_war.csproj",
+      "projectUniqueName": "C:\\Users\\a_nat\\source\\repos\\PPA\\laboratornaya\\fight\\age_of_war.csproj",
       "projectName": "age_of_war",
-      "projectPath": "/Users/setuyaa/Projects/age_of_war/age_of_war/age_of_war.csproj",
-      "packagesPath": "/Users/setuyaa/.nuget/packages/",
-      "outputPath": "/Users/setuyaa/Projects/age_of_war/age_of_war/obj/",
+      "projectPath": "C:\\Users\\a_nat\\source\\repos\\PPA\\laboratornaya\\fight\\age_of_war.csproj",
+      "packagesPath": "C:\\Users\\a_nat\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\a_nat\\source\\repos\\PPA\\laboratornaya\\fight\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/setuyaa/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\a_nat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -59,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.401/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

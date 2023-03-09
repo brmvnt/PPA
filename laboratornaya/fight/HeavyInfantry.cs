@@ -5,10 +5,11 @@ namespace age_of_war
     {
         public HeavyInfantry()
         {
-            attack = 11;
-            defence = 20;
-            constHp = 30;
+            attack = 7;
+            defence = 7;
+            constHp = 8;
             hp = constHp;
+            cost = attack + defence + hp;
         }
         public void GetHeal(int HealerPower)
         {

@@ -6,10 +6,11 @@ namespace age_of_war
     {
         public Knight()
         {
-            constHp = 40;
+            constHp = 20;
             hp = constHp;
-            attack = 30;
-            defence = 25;
+            attack = 10;
+            defence = 10;
+            cost = attack + defence + hp;
         }
         public string name = "Knight";
         public override string ToString()

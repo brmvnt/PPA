@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\laboratornaya",
+    "\\laboratornaya\\fight"
   ],
-  "SelectedNode": "\\C:\\Users\\a_nat\\Source\\Repos\\PPA",
+  "SelectedNode": "\\laboratornaya\\fight\\UEnumerator.cs",
   "PreviewInSolutionExplorer": false
 }
