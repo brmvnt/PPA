@@ -1,0 +1,175 @@
+using System;
+using static System.Formats.Asn1.AsnWriter;
+
+namespace AbsF
+{
+    public interface Foundation { }
+    public interface Concealer { }
+    public interface Mascara { }
+    public interface Blush { }
+    public interface Highlighter { }
+    public interface Powder { }
+    public interface Cosnova
+    {
+        Foundation createFoundation();
+        Concealer createConcealer();
+        Mascara createMascara();
+        Blush createBlush();
+        Highlighter createHighlighter();
+        Powder createPowder();
+    }
+    public class CatriceFoundation : Foundation
+    {
+        public CatriceFoundation()
+        {
+            Console.WriteLine("Created CatriceFoundation!");
+        }
+    }
+    public class CatriceConcealer : Concealer
+    {
+        public CatriceConcealer()
+        {
+            Console.WriteLine("Created CatriceConcealer!");
+        }
+    }
+    public class CatriceMascara : Mascara
+    {
+        public CatriceMascara()
+        {
+            Console.WriteLine("Created CatriceMascara!");
+        }
+    }
+    public class CatriceBlush : Blush
+    {
+        public CatriceBlush()
+        {
+            Console.WriteLine("Created CatriceBlush!");
+        }
+    }
+    public class CatriceHighlighter : Highlighter
+    {
+        public CatriceHighlighter()
+        {
+            Console.WriteLine("Created CatriceHighlighter!");
+        }
+    }
+    public class CatricePowder : Powder
+    {
+        public CatricePowder()
+        {
+            Console.WriteLine("Created CatricePowder!");
+        }
+    }
+    public class EssenceFoundation : Foundation
+    {
+        public EssenceFoundation()
+        {
+            Console.WriteLine("Created EssenceFoundation!");
+        }
+    }
+    public class EssenceConcealer : Concealer
+    {
+        public EssenceConcealer()
+        {
+            Console.WriteLine("Created EssenceConcealer!");
+        }
+    }
+    public class EssenceMascara : Mascara
+    {
+        public EssenceMascara()
+        {
+            Console.WriteLine("Created EssenceMascara!");
+        }
+    }
+    public class EssenceBlush : Blush
+    {
+        public EssenceBlush()
+        {
+            Console.WriteLine("Created EssenceBlush!");
+        }
+    }
+    public class EssenceHighlighter : Highlighter
+    {
+        public EssenceHighlighter()
+        {
+            Console.WriteLine("Created EssenceHighlighter!");
+        }
+    }
+    public class EssencePowder : Powder
+    {
+        public EssencePowder()
+        {
+            Console.WriteLine("Created EssencePowder!");
+        }
+    }
+    public class Catrice : Cosnova {
+        public Foundation createFoundation() {
+            return new CatriceFoundation();
+        }
+        public Concealer createConcealer()
+        {
+            return new CatriceConcealer();
+        }
+        public Mascara createMascara()
+        {
+            return new CatriceMascara();
+        }
+        public Blush createBlush()
+        {
+            return new CatriceBlush();
+        }
+        public Highlighter createHighlighter()
+        {
+            return new CatriceHighlighter();
+        }
+        public Powder createPowder()
+        {
+            return new CatricePowder();
+        }
+    }
+    public class Essence : Cosnova {
+        public Foundation createFoundation()
+        {
+            return new EssenceFoundation();
+        }
+        public Concealer createConcealer()
+        {
+            return new EssenceConcealer();
+        }
+        public Mascara createMascara()
+        {
+            return new EssenceMascara();
+        }
+        public Blush createBlush()
+        {
+            return new EssenceBlush();
+        }
+        public Highlighter createHighlighter()
+        {
+            return new EssenceHighlighter();
+        }
+        public Powder createPowder()
+        {
+            return new EssencePowder();
+        }
+    }
+    public class Program
+    {
+        public static int Main() {
+            //диллер1 хочет купить продукцию бренда Катрис
+            Cosnova holding1 = new Catrice();
+            // Что бы вы хотели? -  пудру, хайлайтер и тональный
+            var powder1 = holding1.createPowder();
+            var highlighter1 = holding1.createHighlighter();
+            var foundation1 = holding1.createFoundation();
+            //диллер2 хочет купить продукцию бренда Эссенс
+            Cosnova holding2 = new Essence();
+            // Что бы вы хотели? -  тональный, румяна, консилер и тушь
+            var foundation2 = holding2.createFoundation();
+            var blush2 = holding2.createBlush();
+            var concealer2 = holding2.createConcealer();
+            var mascara2 = holding2.createMascara();
+            return 0;
+        }
+}
+}
