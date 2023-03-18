@@ -1,0 +1,106 @@
+using System;
+
+namespace ObjectPool
+{
+    // Интерфейс для сброса состояния объекта после использования
+    public interface IPoolable
+    {
+        void ResetState();
+    }
+
+    public class Coin : IPoolable
+    {
+        private int id = -1;
+        private int price = 0;
+
+        public Coin(int id)
+        {
+            this.id = id;
+            Random rnd = new Random();
+            price = rnd.Next(1, 10);
+        }
+
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+        public int Price
+        {
+            get { return price; }
+            set { price = value; }
+        }
+
+        public void ResetState()
+        {
+            Id = -1;
+            Price = 0;
+        }
+    }
+
+    // Интерфейс для создания новых объектов
+    public interface ICoinCreator
+    {
+        Coin CreateCoin(int id);
+    }
+
+    public class CoinCreator : ICoinCreator
+    {
+        public Coin CreateCoin(int id)
+        {
+            return new Coin(id);
+        }
+    }
+
+    public class ObjectPool
+    {
+        private List<Coin> Pool = new List<Coin>();
+
+        public int GetCount()
+        {
+            return Pool.Count();
+        }
+
+        CoinCreator coinCreator = new CoinCreator();
+
+        public Coin GetObject()
+        {
+            if (Pool.Count != 0)
+            {
+                var temp = Pool.First();
+                Pool.RemoveAt(0);
+                Console.WriteLine("Возвращение существующего элемента");
+                return temp;
+            }
+
+            Console.WriteLine("Создание нового элемента");
+            return coinCreator.CreateCoin(GetCount());
+        }
+
+        public void ReturnObject(ref Coin coin)
+        {
+            coin.ResetState();
+            Pool.Add(coin);
+        }
+    }
+
+    internal class Program
+    {
+        public static void Main()
+        {
+            var objectPool = new ObjectPool(); // создаем пул
+
+            Console.WriteLine("Count пула после создания " + objectPool.GetCount()); 
+            Coin coin = objectPool.GetObject();
+            objectPool.ReturnObject(ref coin);
+            Console.WriteLine("Count пула после возвращения одного элемента " + objectPool.GetCount());
+
+            Console.WriteLine("Использование пяти элементов");
+            for (int i = 0; i < 5; i++)
+            {
+                Coin coin2 = objectPool.GetObject();
+            }
+
+        }
+    }
+}
