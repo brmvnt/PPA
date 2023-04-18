@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Runtime.InteropServices;
 
 namespace age_of_war
 {
@@ -6,7 +7,7 @@ namespace age_of_war
     {
         public static int CurrentMoney = 100;
 
-        public static List<Unit> BuyArmyMain() 
+        public static List<Unit> BuyArmyMain()
         {
             List<Unit> Army = new List<Unit>();
             var lf = new LIFactory();
@@ -14,18 +15,20 @@ namespace age_of_war
             var kf = new KFactory();
             var af = new ArrowFactory();
             var healerf = new HealerFactory();
+            var clonerf = new ClonerFactory();
 
             var LItest = new LightInfantry();
             var HItest = new HeavyInfantry();
             var Ktest = new Knight();
             var Atest = new Arrow();
             var Htest = new Healer();
+            var CLtest = new Cloner();
 
             while (true)
             {
-                BuyArmyMenu(LItest, HItest, Ktest, Atest, Htest);
+                BuyArmyMenu(LItest, HItest, Ktest, Atest, Htest, CLtest);
                 var unitChoice = 10;
-                while(unitChoice > 5)
+                while (unitChoice > 6)
                 {
                     try
                     {
@@ -111,11 +114,23 @@ namespace age_of_war
                             Console.WriteLine("Недостаточно денег!");
                             break;
                         }
+                    case 6:
+                        if (isEnoughMoney(CLtest, CurrentMoney) == true)
+                        {
+                            Army.Add(clonerf.Create());
+                            CurrentMoney -= CLtest.Cost;
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Недостаточно денег!");
+                            break;
+                        }
                 }
             }
         }
 
-        private static void BuyArmyMenu(LightInfantry LItest, HeavyInfantry HItest, Knight Ktest, Arrow Atest, Healer Htest)
+        private static void BuyArmyMenu(LightInfantry LItest, HeavyInfantry HItest, Knight Ktest, Arrow Atest, Healer Htest, Cloner CLtest)
         {
             Console.WriteLine("BUY UNITS");
             Console.WriteLine("Button|     Name      | Cost |Attack| Defence |  HP  |   Special Ability Power   |   Special Ability Range  |");
@@ -124,11 +139,12 @@ namespace age_of_war
             Console.WriteLine($"(3)   | {Ktest.name}        |  {Ktest.Cost}  |  {Ktest.Attack}  |    {Ktest.Defence}   |  {Ktest.Hp}  |             0             |             0            |");
             Console.WriteLine($"(4)   | {Atest.name}         |  {Atest.Cost}  |  {Atest.Attack}   |    {Atest.Defence}    |  {Atest.Hp}  |             {Atest.power}             |             {Atest.range}            |");
             Console.WriteLine($"(5)   | {Htest.name}        |  {Htest.Cost}  |  {Htest.Attack}   |    {Htest.Defence}    |  {Htest.Hp}   |             {Htest.power}             |             {Htest.range}            |");
+            Console.WriteLine($"(6)   | {CLtest.name}        |  {CLtest.Cost}  |  {CLtest.Attack}   |    {CLtest.Defence}    |  {CLtest.Hp}   |             {CLtest.power}             |             {CLtest.range}            |");
             Console.WriteLine("(0) Done!");
             Console.WriteLine($"\nCurrent money — {CurrentMoney}");
         }
 
-        static bool isEnoughMoney (Unit unit, int CurrentMoney)
+        static bool isEnoughMoney(Unit unit, int CurrentMoney)
         {
             if (CurrentMoney >= unit.Cost)
             {
