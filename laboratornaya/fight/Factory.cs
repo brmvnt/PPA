@@ -41,4 +41,11 @@ namespace age_of_war
             return new Healer();
         }
     }
+    class ClonerFactory : Factory
+    {
+        public override Unit Create()
+        {
+            return new Cloner();
+        }
+    }
 }
