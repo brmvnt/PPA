@@ -1,7 +1,8 @@
 using System;
-namespace age_of_war {
-    interface IClonable
+namespace age_of_war
+{
+    public interface IClonable
     {
-        IClonable Clone();
+        public IClonable Clone { get; }
     }
 }
