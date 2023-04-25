@@ -1,0 +1,85 @@
+namespace decorator {
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var project1 = new Phone(new Application()); // приложение мобильное
+            Console.WriteLine("Product: {0}", project1.Name);
+            Console.WriteLine("Difficulty in days: {0}", project1.GetDifficulty());
+
+            var project2 = new Desktop(new WebSite()); // сайт десктопный
+            Console.WriteLine("Product: {0}", project2.Name);
+            Console.WriteLine("Difficulty in days: {0}", project2.GetDifficulty());
+
+            Project project3 = new WebSite();
+            project3 = new Phone(project3);
+            project3 = new Desktop(project3);// сайт, совместимый и с телефоном, и с десктопом
+            Console.WriteLine("Product: {0}", project3.Name);
+            Console.WriteLine("Difficulty in days: {0}", project3.GetDifficulty());
+            Console.ReadLine();
+        }
+    }
+
+    abstract class Project
+    {
+        public Project(string n)
+        {
+            this.Name = n;
+        }
+        public string Name { get; protected set; }
+        public abstract int GetDifficulty();
+    }
+
+    class WebSite : Project
+    {
+        public WebSite() : base("Website")
+        { }
+        public override int GetDifficulty() // cколько дней
+        {
+            return 31;
+        }
+    }
+    class Application : Project
+    {
+        public Application()
+            : base("Application")
+        { }
+        public override int GetDifficulty()
+        {
+            return 40;
+        }
+    }
+
+    abstract class ProjectDecorator : Project
+    {
+        protected Project project;
+        public ProjectDecorator(string n, Project project) : base(n)
+        {
+            this.project = project;
+        }
+    }
+
+    class Phone : ProjectDecorator
+    {
+        public Phone(Project project)
+            : base(project.Name + ", for phones", project)
+        { }
+
+        public override int GetDifficulty()
+        {
+            return project.GetDifficulty() + 15;
+        }
+    }
+
+    class Desktop : ProjectDecorator
+    {
+        public Desktop(Project p)
+            : base(p.Name + ", for desktop", p)
+        { }
+
+        public override int GetDifficulty()
+        {
+            return project.GetDifficulty() + 17;
+        }
+    }
+}
