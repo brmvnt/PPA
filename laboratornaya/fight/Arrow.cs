@@ -28,17 +28,21 @@ namespace age_of_war
         {
             return $"{name}";
         }
-        public void Action(ISpecialAbility arrow1, Army army1, Army army2, int i, int j)
+        public void Action(ISpecialAbility arrow1, Army army1, Army army2, int i, int j, int hplace)
         {
             Arrow arrow = (Arrow)arrow1;
-            Console.WriteLine("im here arrow");
+            Proxy proxy = army2.army[0];
+           // Console.WriteLine("im here arrow");
             Action act = new Action();
             Game game = new Game();
             if (army2.army.Count() > 0)
             {
-                if (army2.army[0].IsStillAlive())
-                    army2.army[0].GetHit(arrow.power, game.ArmyPrice);
-                act.Death(i, arrow, army2.army[0], army2, army1, j);
+                if (proxy.IsStillAlive())
+                {
+                    Console.WriteLine($"{i} ход: {army1.ToString()}: {arrow.ToString()} атаковал с силой {arrow.power}");
+                    proxy.GetHit(arrow.power, game.ArmyPrice, i, army2);
+                }
+                act.Death(i, proxy, army2, army1, j);
             }
         }
     }
