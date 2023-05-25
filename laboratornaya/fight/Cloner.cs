@@ -34,25 +34,22 @@ namespace age_of_war
         {
             return $"{name}";
         }
-        public void Action(ISpecialAbility cloner1, Army army1, Army army2, int i, int j)
+        public void Action(ISpecialAbility cloner1, Army army1, Army army2, int i, int j, int hplace)
         {
             Cloner cloner = (Cloner)cloner1;
-            int hplace = army1.army.IndexOf(cloner);
             if (/*(i == j)|| */  (hplace == 0)) return;
-            if (army1.army[hplace - 1] is IClonable)
+            if (army1.army[hplace - 1].IsIClonable()) //hp == -1
             {
-                Console.WriteLine("1im here1");
-                IClonable? clone = null;
+                Proxy? clone = null;
                 if (cloner.Probability() == true)
                 {
-                    Console.WriteLine("1im here2");
-                    clone = ((IClonable)army1.army[hplace - 1]).Clone;
+                   var unit = army1.army[hplace - 1].Clone();
+                   clone = new Proxy((Unit)unit);
                 }// добавляем в армию перед i
                 if (clone != null)
                 {
-                    Console.WriteLine("1im here3");
-                    Console.WriteLine($"Клонирование {army1.army[hplace - 1].ToString()}");
-                    army1.army.Insert(hplace - 1, (Unit)clone);
+                    Console.WriteLine($"{i} ход: {army1.ToString()}: Клонирование {army1.army[hplace - 1].ToString()}");
+                    army1.army.Insert(hplace - 1, clone);
                 }
             }
         }
