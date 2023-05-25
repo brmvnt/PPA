@@ -1,0 +1,106 @@
+using System;
+namespace age_of_war
+{
+    public class Proxy: Unit
+    {
+        private Unit unit;
+        public Proxy(Unit unit)
+        {
+            this.unit = unit;
+        }
+        public new int Attack { get { return unit.Attack; } }
+        public new int Defence
+        {
+            get { return unit.Defence; }
+        }
+
+        public new int Hp
+        {
+            get { return unit.Hp; }
+        }
+        public new int ConstHp
+        {
+            get { return unit.ConstHp; }
+        }
+        public int Range() {
+            if (unit is ISpecialAbility)
+                return ((ISpecialAbility)unit).range;
+            return 0;
+        }
+        public void GetHeal(int power) {
+            if (unit is IHealable)
+                ((IHealable)unit).GetHeal(power);
+        }
+        public new void GetHit(int oppAtt, int ArmyPrice, int i, Army army2) {
+            if (Access()) // ljcneg
+            {
+                unit.GetHit(oppAtt, ArmyPrice, i, army2);
+                unit.PrintResultDefence(i, army2);
+            }
+        }
+        public new void PrintResultAttack(int i, Army army1, Army army2, int j)
+        {
+            Console.WriteLine($"{i} ход: {army1.ToString()}: {unit.ToString()} атаковал с силой {unit.Attack}");
+        }
+        public new bool IsStillAlive()
+        {
+            return unit.IsStillAlive();
+        }
+        public void Action(Proxy SA, Army army1, Army army2, int i, int j)
+        {
+            if (unit is ISpecialAbility)
+            {
+                int hplace = 0;
+                if (unit is Cloner) hplace = GetClonerPlace(army1);
+                ((ISpecialAbility)unit).Action((ISpecialAbility)unit, army1, army2, i, j, hplace);
+            }
+        }
+        public new bool CheckSA()
+        {
+            if (unit is ISpecialAbility)
+                return true;
+            return false;
+        }
+        public bool IsIHealable()
+        {
+            if (unit is IHealable)
+                return true;
+            return false;
+        }
+        public bool IsIClonable()
+        {
+            if (unit is IClonable)
+                return true;
+            return false;
+        }
+        public bool Probability() {
+            if (unit is Cloner)
+            {
+                Cloner cloner = (Cloner)unit;
+                return cloner.Probability();
+            }
+            return false;
+        }
+        public int GetClonerPlace(Army army)
+        {
+            if (unit is Cloner)
+            {
+                return army.army.IndexOf(this);
+            }
+            return -1;
+        }
+        public IClonable Clone()
+        {
+            if (unit is IClonable)
+                return ((IClonable)unit).Clone;
+            return null;
+        } 
+        private bool Access() {
+            return true;
+        }
+        public override string ToString() {
+            return unit.ToString();
+        }
+    }
+}
+
