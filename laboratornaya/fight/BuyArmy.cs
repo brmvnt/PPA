@@ -7,9 +7,9 @@ namespace age_of_war
     {
         public static int CurrentMoney = 100;
 
-        public static List<Unit> BuyArmyMain()
+        public static List<Proxy> BuyArmyMain()
         {
-            List<Unit> Army = new List<Unit>();
+            List<Proxy> Army = new List<Proxy>();
             var lf = new LIFactory();
             var hf = new HIFactory();
             var kf = new KFactory();
@@ -57,7 +57,8 @@ namespace age_of_war
                     case 1:
                         if (isEnoughMoney(LItest, CurrentMoney) == true)
                         {
-                            Army.Add(lf.Create());
+                            var pr1 = new Proxy(lf.Create());
+                            Army.Add(pr1);
                             CurrentMoney -= LItest.Cost;
                             break;
                         }
@@ -69,7 +70,8 @@ namespace age_of_war
                     case 2:
                         if (isEnoughMoney(HItest, CurrentMoney) == true)
                         {
-                            Army.Add(hf.Create());
+                            var pr2 = new Proxy(hf.Create());
+                            Army.Add(pr2);
                             CurrentMoney -= HItest.Cost;
                             break;
                         }
@@ -81,7 +83,8 @@ namespace age_of_war
                     case 3:
                         if (isEnoughMoney(Ktest, CurrentMoney) == true)
                         {
-                            Army.Add(kf.Create());
+                            var pr3 = new Proxy(kf.Create());
+                            Army.Add(pr3);
                             CurrentMoney -= Ktest.Cost;
                             break;
                         }
@@ -93,7 +96,8 @@ namespace age_of_war
                     case 4:
                         if (isEnoughMoney(Atest, CurrentMoney) == true)
                         {
-                            Army.Add(af.Create());
+                            var pr4 = new Proxy(af.Create());
+                            Army.Add(pr4);
                             CurrentMoney -= Atest.Cost;
                             break;
                         }
@@ -105,7 +109,8 @@ namespace age_of_war
                     case 5:
                         if (isEnoughMoney(Htest, CurrentMoney) == true)
                         {
-                            Army.Add(healerf.Create());
+                            var pr5 = new Proxy(healerf.Create());
+                            Army.Add(pr5);
                             CurrentMoney -= Htest.Cost;
                             break;
                         }
@@ -117,7 +122,8 @@ namespace age_of_war
                     case 6:
                         if (isEnoughMoney(CLtest, CurrentMoney) == true)
                         {
-                            Army.Add(clonerf.Create());
+                            var pr6 = new Proxy(clonerf.Create());
+                            Army.Add(pr6);
                             CurrentMoney -= CLtest.Cost;
                             break;
                         }
