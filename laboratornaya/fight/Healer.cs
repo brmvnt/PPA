@@ -30,18 +30,18 @@ namespace age_of_war
         {
             return $"{name}";
         }
-        public void Action(ISpecialAbility healer1, Army army1, Army army2, int i, int j)
+        public void Action(ISpecialAbility healer1, Army army1, Army army2, int i, int j, int hplace)
         {
             Healer healer = (Healer)healer1;
-            Console.WriteLine("im here1");
-            if (army1.army[0] is IHealable)
+           // Console.WriteLine("im here1");
+            if (army1.army[0].IsIHealable()) //  for proxy
             {
-                Console.WriteLine("im here2");
-                if (army1.army[0].Hp < army1.army[0].ConstHp && army1.army[0].IsStillAlive())
+              //  Console.WriteLine("im here2");
+                if (army1.army[0].Hp <= army1.army[0].ConstHp && army1.army[0].IsStillAlive())
                 {
-                    Console.WriteLine("im here3");
-                    ((IHealable)army1.army[0]).GetHeal(healer.power);
-                    Console.WriteLine($"{army1.ToString()}: {healer.ToString()} вылечил {army1.army[0].ToString()} с хп {army1.army[0].Hp}");
+                    //Console.WriteLine("im here3");
+                    (army1.army[0]).GetHeal(healer.power);
+                    Console.WriteLine($"{i} ход: {army1.ToString()}: {healer.ToString()} вылечил {army1.army[0].ToString()} с хп {army1.army[0].Hp}");
                 }
             }
         }
