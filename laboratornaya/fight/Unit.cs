@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 namespace age_of_war
 {
     public abstract class Unit
@@ -36,21 +36,34 @@ namespace age_of_war
             set { cost = attack + defence + hp; }
         }
 
-        public void GetHit(int oppAtt, int ArmyPrice) {
+        public void GetHit(int oppAtt, int ArmyPrice, int i, Army army)
+        {
             // oppAtt - сила атаки
-            var minus = (int)Math.Round((decimal)((ArmyPrice - defence)*oppAtt/100));
+            var minus = (int)Math.Round((decimal)((ArmyPrice - defence) * oppAtt / 100));
             hp -= minus;
         }
-        public bool IsStillAlive() {
+        public bool IsStillAlive()
+        {
             bool t = true;
             if (hp <= 0) t = false;
             return t;
         }
-
+        public void PrintResultAttack(int i, Army army1, Army army2, int j)
+        {
+            Console.WriteLine($"{i} ход: {army1.ToString()}: {ToString()} атаковал с силой {Attack}");
+        }
+        public void PrintResultDefence(int i, Army army2)
+        {
+            if (hp <= 0)
+                Console.WriteLine($"{i} ход: {army2.ToString()}: {ToString()} с защитой {Defence} был убит");
+            else
+                Console.WriteLine($"{i} ход: {army2.ToString()}: {ToString()} с защитой {Defence} остался жив");
+        }
         internal IHealable GetHeal(int power)
         {
             throw new NotImplementedException();
         }
+        public void CheckSA() { }
     }
 }
 
