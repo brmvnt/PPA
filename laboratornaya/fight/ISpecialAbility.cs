@@ -5,6 +5,6 @@ namespace age_of_war
     {
         public SAEnumeration Ability { get; }
         public int range { get; }
-        public void Action(ISpecialAbility special, Army army1, Army army2, int i, int j) { }
+        public void Action(ISpecialAbility special, Army army1, Army army2, int i, int j, int hplace) { }
     }
 }
