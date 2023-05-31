@@ -8,6 +8,7 @@ namespace age_of_war
         Knight = 3,
         Archery = 4,
         Healer = 5,
-        Cloner = 6
+        Cloner = 6,
+        GulyayGorod = 7
     }
 }

@@ -34,13 +34,17 @@ namespace age_of_war
         public new void GetHit(int oppAtt, int ArmyPrice, int i, Army army2) {
             if (Access()) // ljcneg
             {
-                unit.GetHit(oppAtt, ArmyPrice, i, army2);
-                unit.PrintResultDefence(i, army2);
+                unit.GetHit(oppAtt, ArmyPrice);
+                PrintResultDefence(i, army2);
             }
         }
-        public new void PrintResultAttack(int i, Army army1, Army army2, int j)
+        public override void PrintResultAttack(int i, Army army1, Army army2, int j)
         {
-            Console.WriteLine($"{i} ход: {army1.ToString()}: {unit.ToString()} атаковал с силой {unit.Attack}");
+            unit.PrintResultAttack(i, army1, army2, j);
+        }
+        public override void PrintResultDefence(int i, Army army2)
+        {
+            unit.PrintResultDefence(i, army2);
         }
         public new bool IsStillAlive()
         {

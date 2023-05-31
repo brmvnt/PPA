@@ -14,14 +14,14 @@ namespace age_of_war
             //var menuForcommand = new MenuForCommand();
             //var invoker = new Invoker();
             //var station = new Station(army1, army2);
-            IStrategy strategy = new MainStrategy();
+            //IStrategy strategy = new MainStrategy();
             while (army1.army.Count() > 0 && army2.army.Count() > 0)
             {
                 Console.WriteLine("Choose the strategy: 1,  2, 3");
                 var temp = Console.ReadLine();
                 int choice = Convert.ToInt32(temp);
                 // устанавливаем стратегию
-                strategy.Algorithm();
+                //strategy.Algorithm();
                 //station.UpdateStation(army1, army2);
                 //if (i != 1 || station.undo == true)
                 //{                

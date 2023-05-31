@@ -1,51 +1,60 @@
 using System;
 namespace age_of_war
 {
-    abstract class Factory
+    interface IFactory
     {
-        abstract public Unit Create();
+        public Unit Create();
     }
 
-    class LIFactory : Factory
+    class LIFactory : IFactory
     {
-        public override Unit Create()
+        public Unit Create()
         {
             return new LightInfantry();
         }
     }
-    class HIFactory : Factory
+    class HIFactory : IFactory
     {
-        public override Unit Create()
+        public  Unit Create()
         {
             return new HeavyInfantry();
         }
     }
-    class KFactory : Factory
+    class KFactory : IFactory
     {
-        public override Unit Create()
+        public  Unit Create()
         {
             return new Knight();
         }
     }
-    class ArrowFactory : Factory
+    class ArrowFactory : IFactory
     {
-        public override Unit Create()
+        public  Unit Create()
         {
             return new Arrow();
         }
     }
-    class HealerFactory : Factory
+    class HealerFactory : IFactory
     {
-        public override Unit Create()
+        public  Unit Create()
         {
             return new Healer();
         }
     }
-    class ClonerFactory : Factory
+    class ClonerFactory : IFactory
     {
-        public override Unit Create()
+        public  Unit Create()
         {
             return new Cloner();
+        }
+    }
+
+    class GGFactory : IFactory
+    {
+        public  Unit Create()
+        {
+            return new Adapter();
+
         }
     }
 }

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\a_nat\\source\\repos\\PPA\\laboratornaya\\fight\\age_of_war.csproj",
+      "projectUniqueName": "C:\\Users\\a_nat\\Desktop\\game\\PPA\\laboratornaya\\fight\\age_of_war.csproj",
       "projectName": "age_of_war",
-      "projectPath": "C:\\Users\\a_nat\\source\\repos\\PPA\\laboratornaya\\fight\\age_of_war.csproj",
+      "projectPath": "C:\\Users\\a_nat\\Desktop\\game\\PPA\\laboratornaya\\fight\\age_of_war.csproj",
       "packagesPath": "C:\\Users\\a_nat\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\a_nat\\source\\repos\\PPA\\laboratornaya\\fight\\obj\\",
+      "outputPath": "C:\\Users\\a_nat\\Desktop\\game\\PPA\\laboratornaya\\fight\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\a_nat\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -16,6 +16,7 @@ namespace age_of_war
             var af = new ArrowFactory();
             var healerf = new HealerFactory();
             var clonerf = new ClonerFactory();
+            var GGf = new GGFactory();
 
             var LItest = new LightInfantry();
             var HItest = new HeavyInfantry();
@@ -23,12 +24,13 @@ namespace age_of_war
             var Atest = new Arrow();
             var Htest = new Healer();
             var CLtest = new Cloner();
+            var GGtest = new Adapter();
 
             while (true)
             {
-                BuyArmyMenu(LItest, HItest, Ktest, Atest, Htest, CLtest);
+                BuyArmyMenu(LItest, HItest, Ktest, Atest, Htest, CLtest, GGtest);
                 var unitChoice = 10;
-                while (unitChoice > 6)
+                while (unitChoice > 7)
                 {
                     try
                     {
@@ -64,7 +66,7 @@ namespace age_of_war
                         }
                         else
                         {
-                            Console.WriteLine("Недостаточно денег!");
+                            noMoney();
                             break;
                         }
                     case 2:
@@ -77,7 +79,7 @@ namespace age_of_war
                         }
                         else
                         {
-                            Console.WriteLine("Недостаточно денег!");
+                            noMoney();
                             break;
                         }
                     case 3:
@@ -90,7 +92,7 @@ namespace age_of_war
                         }
                         else
                         {
-                            Console.WriteLine("Недостаточно денег!");
+                            noMoney();
                             break;
                         }
                     case 4:
@@ -103,7 +105,7 @@ namespace age_of_war
                         }
                         else
                         {
-                            Console.WriteLine("Недостаточно денег!");
+                            noMoney();
                             break;
                         }
                     case 5:
@@ -116,7 +118,7 @@ namespace age_of_war
                         }
                         else
                         {
-                            Console.WriteLine("Недостаточно денег!");
+                            noMoney();
                             break;
                         }
                     case 6:
@@ -129,14 +131,27 @@ namespace age_of_war
                         }
                         else
                         {
-                            Console.WriteLine("Недостаточно денег!");
+                            noMoney();
+                            break;
+                        }
+                    case 7:
+                        if (isEnoughMoney(GGtest, CurrentMoney) == true)
+                        {
+                            var pr7 = new Proxy(GGf.Create());
+                            Army.Add(pr7);
+                            CurrentMoney -= GGtest.Cost;
+                            break;
+                        }
+                        else
+                        {
+                            noMoney();
                             break;
                         }
                 }
             }
         }
 
-        private static void BuyArmyMenu(LightInfantry LItest, HeavyInfantry HItest, Knight Ktest, Arrow Atest, Healer Htest, Cloner CLtest)
+        private static void BuyArmyMenu(LightInfantry LItest, HeavyInfantry HItest, Knight Ktest, Arrow Atest, Healer Htest, Cloner CLtest, Adapter GGtest)
         {
             Console.WriteLine("BUY UNITS");
             Console.WriteLine("Button|     Name      | Cost |Attack| Defence |  HP  |   Special Ability Power   |   Special Ability Range  |");
@@ -145,9 +160,10 @@ namespace age_of_war
             Console.WriteLine($"(3)   | {Ktest.name}        |  {Ktest.Cost}  |  {Ktest.Attack}  |    {Ktest.Defence}   |  {Ktest.Hp}  |             0             |             0            |");
             Console.WriteLine($"(4)   | {Atest.name}         |  {Atest.Cost}  |  {Atest.Attack}   |    {Atest.Defence}    |  {Atest.Hp}  |             {Atest.power}             |             {Atest.range}            |");
             Console.WriteLine($"(5)   | {Htest.name}        |  {Htest.Cost}  |  {Htest.Attack}   |    {Htest.Defence}    |  {Htest.Hp}   |             {Htest.power}             |             {Htest.range}            |");
-            Console.WriteLine($"(6)   | {CLtest.name}        |  {CLtest.Cost}  |  {CLtest.Attack}   |    {CLtest.Defence}    |  {CLtest.Hp}   |             {CLtest.power}             |             {CLtest.range}            |");
+            Console.WriteLine($"(6)   | {CLtest.name}        |  {CLtest.Cost}  |  {CLtest.Attack}   |    {CLtest.Defence}    |  {CLtest.Hp}   |             {CLtest.power}            |             {CLtest.range}            |");
+            Console.WriteLine($"(7)   | {GGtest.name}  |  {GGtest.Cost}  |  {GGtest.Attack}   |   {GGtest.Defence}    | {GGtest.Hp}   |             0             |             0            |");
             Console.WriteLine("(0) Done!");
-            Console.WriteLine($"\nCurrent money — {CurrentMoney}");
+            Console.WriteLine($"\nCurrent money — {CurrentMoney}"); 
         }
 
         static bool isEnoughMoney(Unit unit, int CurrentMoney)
@@ -157,6 +173,11 @@ namespace age_of_war
                 return true;
             }
             return false;
+        }
+
+        static void noMoney()
+        {
+            Console.WriteLine("Недостаточно денег!");
         }
 
     }
