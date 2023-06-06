@@ -23,6 +23,11 @@ namespace age_of_war
         {
             get { return unit.ConstHp; }
         }
+        public string Name
+        {
+            get { return unit.Name; }
+            set { unit.Name = value; }
+        }
         public int Range() {
             if (unit is ISpecialAbility)
                 return ((ISpecialAbility)unit).range;
