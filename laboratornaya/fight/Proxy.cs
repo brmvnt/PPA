@@ -1,6 +1,7 @@
-using System;
+﻿using System;
 namespace age_of_war
 {
+    [Serializable]
     public class Proxy: Unit
     {
         private Unit unit;
@@ -50,7 +51,7 @@ namespace age_of_war
         {
             return unit.IsStillAlive();
         }
-        public void Action(Proxy SA, Army army1, Army army2, int i, int j)
+        public void Action(Proxy SA, Army army1, ArrayOfArmies army2, int i, int j)
         {
             if (unit is ISpecialAbility)
             {

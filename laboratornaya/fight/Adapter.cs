@@ -1,14 +1,14 @@
 ﻿namespace age_of_war
 {
+    [Serializable]
     class Adapter : Unit
     {
         private GulyayGorod gulyayGorod;
-        public string name;
-
+       // public string name;
         public Adapter()
         {
             gulyayGorod = new GulyayGorod(10, 30, 40);
-            name = "Gulyay Gorod";
+            //name = ";
             attack = gulyayGorod.GetStrength();
             defence = gulyayGorod.GetDefence();
             cost = gulyayGorod.GetCost();
@@ -66,8 +66,8 @@
             else
                 Console.WriteLine($"{i} ход: {army2.ToString()}: {ToString()} с защитой {Defence} остался жив");
         }
-
-        public new string ToString()
+        public string name = "Gulyay_Gorod";
+        public override string ToString()
         {
             return $"{name}";
         }

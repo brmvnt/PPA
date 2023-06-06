@@ -1,6 +1,7 @@
-using System;
+﻿using System;
 namespace age_of_war
 {
+    [Serializable]
     public abstract class Unit
     {
         protected int hp; // Максимальное HP

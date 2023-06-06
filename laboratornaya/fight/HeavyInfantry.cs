@@ -1,7 +1,8 @@
 ﻿using System;
 namespace age_of_war
 {
-    public class HeavyInfantry:Unit, IHealable
+    [Serializable]
+    public class HeavyInfantry : Unit, IHealable
     {
         public HeavyInfantry()
         {
@@ -11,7 +12,7 @@ namespace age_of_war
             hp = constHp;
             cost = attack + defence + hp;
         }
-        public void GetHeal(int HealerPower)
+        public new void GetHeal(int HealerPower)
         {
             if (hp < ConstHp && hp > 0)
             {

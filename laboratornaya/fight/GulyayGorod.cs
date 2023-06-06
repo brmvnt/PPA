@@ -1,6 +1,6 @@
 ﻿using age_of_war;
 using System;
-
+[Serializable]
 public class GulyayGorod
 {
     private readonly int _health;

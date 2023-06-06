@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\a_nat\\Desktop\\game\\PPA\\laboratornaya\\fight\\age_of_war.csproj": {}
+    "/Users/setuyaa/Projects/age_of_war/age_of_war/age_of_war.csproj": {}
   },
   "projects": {
-    "C:\\Users\\a_nat\\Desktop\\game\\PPA\\laboratornaya\\fight\\age_of_war.csproj": {
+    "/Users/setuyaa/Projects/age_of_war/age_of_war/age_of_war.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\a_nat\\Desktop\\game\\PPA\\laboratornaya\\fight\\age_of_war.csproj",
+        "projectUniqueName": "/Users/setuyaa/Projects/age_of_war/age_of_war/age_of_war.csproj",
         "projectName": "age_of_war",
-        "projectPath": "C:\\Users\\a_nat\\Desktop\\game\\PPA\\laboratornaya\\fight\\age_of_war.csproj",
-        "packagesPath": "C:\\Users\\a_nat\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\a_nat\\Desktop\\game\\PPA\\laboratornaya\\fight\\obj\\",
+        "projectPath": "/Users/setuyaa/Projects/age_of_war/age_of_war/age_of_war.csproj",
+        "packagesPath": "/Users/setuyaa/.nuget/packages/",
+        "outputPath": "/Users/setuyaa/Projects/age_of_war/age_of_war/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\a_nat\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/setuyaa/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -55,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.401/RuntimeIdentifierGraph.json"
         }
       }
     }

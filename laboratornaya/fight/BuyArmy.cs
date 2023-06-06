@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Runtime.InteropServices;
 
 namespace age_of_war
@@ -163,7 +163,7 @@ namespace age_of_war
             Console.WriteLine($"(6)   | {CLtest.name}        |  {CLtest.Cost}  |  {CLtest.Attack}   |    {CLtest.Defence}    |  {CLtest.Hp}   |             {CLtest.power}            |             {CLtest.range}            |");
             Console.WriteLine($"(7)   | {GGtest.name}  |  {GGtest.Cost}  |  {GGtest.Attack}   |   {GGtest.Defence}    | {GGtest.Hp}   |             0             |             0            |");
             Console.WriteLine("(0) Done!");
-            Console.WriteLine($"\nCurrent money — {CurrentMoney}"); 
+            Console.WriteLine($"\nCurrent money — {CurrentMoney}");
         }
 
         static bool isEnoughMoney(Unit unit, int CurrentMoney)
@@ -173,12 +173,13 @@ namespace age_of_war
                 return true;
             }
             return false;
-        }
 
+        }
         static void noMoney()
         {
             Console.WriteLine("Недостаточно денег!");
         }
+
 
     }
 }

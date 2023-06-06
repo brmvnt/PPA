@@ -1,8 +1,9 @@
-using System;
+﻿using System;
 using System.Text;
 
 namespace age_of_war
 {
+    [Serializable]
     public class Healer : Unit, ISpecialAbility
     {
         public SAEnumeration Ability { get; }
@@ -30,7 +31,6 @@ namespace age_of_war
         {
             return $"{name}";
         }
-
         public override void PrintResultAttack(int i, Army army1, Army army2, int j)
         {
             Console.WriteLine($"{i} ход: {army1.ToString()}: {ToString()} атаковал с силой {Attack}");
@@ -43,16 +43,13 @@ namespace age_of_war
             else
                 Console.WriteLine($"{i} ход: {army2.ToString()}: {ToString()} с защитой {Defence} остался жив");
         }
-        public void Action(ISpecialAbility healer1, Army army1, Army army2, int i, int j, int hplace)
+        public void Action(ISpecialAbility healer1, Army army1, ArrayOfArmies army, int i, int j, int hplace)
         {
             Healer healer = (Healer)healer1;
-           // Console.WriteLine("im here1");
             if (army1.army[0].IsIHealable()) //  for proxy
             {
-              //  Console.WriteLine("im here2");
-                if (army1.army[0].Hp <= army1.army[0].ConstHp && army1.army[0].IsStillAlive())
+                if (army1.army[0].Hp < army1.army[0].ConstHp && army1.army[0].IsStillAlive())
                 {
-                    //Console.WriteLine("im here3");
                     (army1.army[0]).GetHeal(healer.power);
                     Console.WriteLine($"{i} ход: {army1.ToString()}: {healer.ToString()} вылечил {army1.army[0].ToString()} с хп {army1.army[0].Hp}");
                 }

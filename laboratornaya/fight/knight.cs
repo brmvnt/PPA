@@ -1,8 +1,8 @@
 ﻿using System;
 namespace age_of_war
 {
-
-    public class Knight:Unit
+    [Serializable]
+    public class Knight : Unit
     {
         public Knight()
         {

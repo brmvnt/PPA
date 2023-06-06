@@ -1,6 +1,7 @@
-using System;
+п»їusing System;
 namespace age_of_war
 {
+    [Serializable]
     public class LightInfantry : Unit, IHealable, IClonable
     {
         public string name = "LightInfantry";
@@ -13,8 +14,6 @@ namespace age_of_war
             hp = constHp;
             cost = attack + defence + hp;
         }
-
-        //IClonable IClonable.Clone => throw new NotImplementedException();
 
         public IClonable Clone
         {
@@ -34,7 +33,7 @@ namespace age_of_war
 
         public override void PrintResultAttack(int i, Army army1, Army army2, int j)
         {
-            Console.WriteLine($"{i} ход: {army1.ToString()}: {ToString()} атаковал с силой {Attack}");
+            Console.WriteLine($"{i} С…РѕРґ: {army1.ToString()}: {ToString()} Р°С‚Р°РєРѕРІР°Р» СЃ СЃРёР»РѕР№ {Attack}");
         }
         public override string ToString()
         {
@@ -44,9 +43,9 @@ namespace age_of_war
         public override void PrintResultDefence(int i, Army army2)
         {
             if (hp <= 0)
-                Console.WriteLine($"{i} ход: {army2.ToString()}: {ToString()} с защитой {Defence} был убит");
+                Console.WriteLine($"{i} С…РѕРґ: {army2.ToString()}: {ToString()} СЃ Р·Р°С‰РёС‚РѕР№ {Defence} Р±С‹Р» СѓР±РёС‚");
             else
-                Console.WriteLine($"{i} ход: {army2.ToString()}: {ToString()} с защитой {Defence} остался жив");
+                Console.WriteLine($"{i} С…РѕРґ: {army2.ToString()}: {ToString()} СЃ Р·Р°С‰РёС‚РѕР№ {Defence} РѕСЃС‚Р°Р»СЃСЏ Р¶РёРІ");
         }
     }
 }

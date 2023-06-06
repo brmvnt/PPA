@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 namespace age_of_war
 {
     public class MenuForCommand
@@ -8,6 +8,7 @@ namespace age_of_war
             Console.WriteLine("Выберите действие");
             Console.WriteLine("1. Отменить действие");
             Console.WriteLine("0. Продолжить игру");
+            Console.WriteLine("3. Продолжить игру до конца");
             int choice = ChooseChoice();
             return choice;
         }
@@ -15,13 +16,15 @@ namespace age_of_war
         {
             Console.WriteLine("Выберите действие");
             Console.WriteLine("2. Вернуть действие");
+            Console.WriteLine("1. Отменить действие");
             Console.WriteLine("0. Продолжить игру");
+            Console.WriteLine("3. Продолжить игру до конца");
             int choice = ChooseChoice();
             return choice;
         }
         public static int ChooseChoice() {
             int choice = -1;
-            while (choice != 1 && choice != 0 && choice !=2)
+            while (choice != 1 && choice != 0 && choice !=2  && choice != 3)
             {
                 try
                 {
@@ -38,3 +41,4 @@ namespace age_of_war
         }
     }
 }
+

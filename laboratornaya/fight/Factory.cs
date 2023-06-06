@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 namespace age_of_war
 {
     interface IFactory
@@ -15,35 +15,35 @@ namespace age_of_war
     }
     class HIFactory : IFactory
     {
-        public  Unit Create()
+        public Unit Create()
         {
             return new HeavyInfantry();
         }
     }
     class KFactory : IFactory
     {
-        public  Unit Create()
+        public Unit Create()
         {
             return new Knight();
         }
     }
     class ArrowFactory : IFactory
     {
-        public  Unit Create()
+        public Unit Create()
         {
             return new Arrow();
         }
     }
     class HealerFactory : IFactory
     {
-        public  Unit Create()
+        public Unit Create()
         {
             return new Healer();
         }
     }
     class ClonerFactory : IFactory
     {
-        public  Unit Create()
+        public Unit Create()
         {
             return new Cloner();
         }
@@ -51,7 +51,7 @@ namespace age_of_war
 
     class GGFactory : IFactory
     {
-        public  Unit Create()
+        public Unit Create()
         {
             return new Adapter();
 

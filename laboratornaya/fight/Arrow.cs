@@ -1,6 +1,7 @@
-using System;
+﻿using System;
 namespace age_of_war
 {
+    [Serializable]
     public class Arrow : Unit, ISpecialAbility
     {
         public SAEnumeration Ability { get; }
@@ -28,7 +29,6 @@ namespace age_of_war
         {
             return $"{name}";
         }
-
         public override void PrintResultAttack(int i, Army army1, Army army2, int j)
         {
             Console.WriteLine($"{i} ход: {army1.ToString()}: {ToString()} атаковал с силой {Attack}");
@@ -41,21 +41,25 @@ namespace age_of_war
             else
                 Console.WriteLine($"{i} ход: {army2.ToString()}: {ToString()} с защитой {Defence} остался жив");
         }
-        public void Action(ISpecialAbility arrow1, Army army1, Army army2, int i, int j, int hplace)
+        public void Action(ISpecialAbility arrow1, Army army1, ArrayOfArmies army, int i, int j, int hplace)
         {
-            Arrow arrow = (Arrow)arrow1;
-            Proxy proxy = army2.army[0];
-           // Console.WriteLine("im here arrow");
-            Action act = new Action();
-            Game game = new Game();
-            if (army2.army.Count() > 0)
+            for (int k = 0; k < army.armyNumber; k++)
             {
-                if (proxy.IsStillAlive())
+                Army army2 = army.array[k];
+                Arrow arrow = (Arrow)arrow1;
+                Proxy proxy = army2.army[0];
+                // Console.WriteLine("im here arrow");
+                Action act = new Action();
+                Game game = new Game();
+                if (army2.army.Count() > 0)
                 {
-                    Console.WriteLine($"{i} ход: {army1.ToString()}: {arrow.ToString()} атаковал с силой {arrow.power}");
-                    proxy.GetHit(arrow.power, game.ArmyPrice, i, army2);
+                    if (proxy.IsStillAlive())
+                    {
+                        Console.WriteLine($"{i} ход: {army1.ToString()}: {arrow.ToString()} атаковал с силой {arrow.power}");
+                        proxy.GetHit(arrow.power, game.ArmyPrice, i, army2);
+                    }
+                    act.CheckDeath(i, proxy, army2, army1, j);
                 }
-                act.Death(i, proxy, army2, army1, j);
             }
         }
     }
