@@ -1,3 +1,5 @@
+﻿using System.Xml.Linq;
+
 namespace age_of_war
 {
     public abstract class UnitDecorator : HeavyInfantry
